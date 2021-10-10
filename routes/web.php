@@ -1,24 +1,29 @@
 <?php
 
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\DayController;
+use App\Http\Controllers\WebsiteController;
+
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return redirect('/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard', [AppController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/day/new', [DayController::class, 'create']);
+    Route::post('/day/new', [DayController::class, 'store']);
+
+    Route::post('/day/update', [DayController::class, 'update']);
+
+    Route::post('/day/delete', [DayController::class, 'delete']);
+
+    Route::get('/day/{day}', [DayController::class, 'single']);
+});

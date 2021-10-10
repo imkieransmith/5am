@@ -12,6 +12,15 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +30,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'schedule'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -33,6 +44,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast.
      *
@@ -41,4 +53,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+    /**
+     * Get the Days associated with this User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function days()
+    {
+        return $this->hasMany(Day::class);
+    }
 }
