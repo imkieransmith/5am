@@ -4,9 +4,7 @@
 Designed to structure your morning, in 5am you set a wellness task - such as taking a walk or meditating - to complete as soon as you wake up, and then a handful of goals you are aiming to accomplish with the rest of your morning.
 
 ## Setup
-> git clone git@github.com:imkieransmith/5amclub.git
-> composer install
->
+Clone repo, copy .env.example to .env and update URL/DB details, run `composer install`.
 
 
 ## Todo
