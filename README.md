@@ -4,7 +4,12 @@
 Designed to structure your morning, in 5am you set a wellness task - such as taking a walk or meditating - to complete as soon as you wake up, and then a handful of goals you are aiming to accomplish with the rest of your morning.
 
 ## Setup
-Clone repo, copy .env.example to .env and update URL/DB details, run `composer install`.
+- Clone repo
+- Copy .env.example to .env and update APP_URL/DB details
+- `composer install`
+- `php artisan migrate`
+
+If you run into any issues, feel free to get in touch with me on [Twitter](https://twitter.com/imkieransmith/).
 
 
 ## Todo
