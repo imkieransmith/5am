@@ -3,6 +3,10 @@
 
 Designed to structure your morning, in 5am you set a wellness task - such as taking a walk or meditating - to complete as soon as you wake up, and then a handful of goals you are aiming to accomplish with the rest of your morning.
 
+## Built with
+- TALL stack and Valet for local development.
+- Laravel Breeze for authentication and dashboard shell.
+
 ## Setup
 - Clone repo
 - Copy .env.example to .env and update APP_URL/DB details
